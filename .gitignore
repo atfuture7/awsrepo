@@ -1,0 +1,11 @@
+# ignore all 
+*
+
+# except source files
+!*.c
+!*.java
+!*.py
+!*.php
+
+# keep folders 
+!*/
