@@ -3,7 +3,7 @@ import java.io.*;
 
 public class client {
     private Socket server_soc = null;
-    private BufferedReader  cli_in = null;
+    private BufferedReader cli_in = null;
     private DataInputStream server_in = null;
     private DataOutputStream server_out = null;
     private static final String STR_END = "over";
@@ -15,7 +15,8 @@ public class client {
             server_soc = new Socket(address, port);
             System.out.println("Connetcted!");
 
-            cli_in = new BufferedReader (System.in);
+            cli_in = new BufferedReader( 
+			new InputStreamReader(System.in));
             server_in = new DataInputStream(
                             new BufferedInputStream(server_soc.getInputStream()));
             server_out = new DataOutputStream(server_soc.getOutputStream());
@@ -29,7 +30,7 @@ public class client {
         // read/write
         String line = "";
         
-        while (!line.eqial(STR_END)) {
+        while (!line.equals(STR_END)) {
             try {
                 line = cli_in.readLine();
                 server_out.writeUTF(line);

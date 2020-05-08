@@ -20,14 +20,13 @@ public class server {
 
             cli_in = new DataInputStream(
                     new BufferedInputStream(client_sock.getInputStream()));
-            cli_out = new DataOutputStream( 
-                    new client_sock.getOutputStream() );
+            cli_out = new DataOutputStream( client_sock.getOutputStream() );
             String line = "";
 
             while ( !line.equals(STR_END)) {
                 try {
                     line = cli_in.readUTF();
-                    out.writeUTF("server reply"+line);
+                    cli_out.writeUTF("server reply: "+line);
                 } catch (IOException i) {
                     System.out.println(i);
                 }
@@ -39,7 +38,7 @@ public class server {
             cli_out.close();
 
         } catch (IOException i) {
-            Syetem.out.println(i);
+            System.out.println(i);
         }
 
     }
