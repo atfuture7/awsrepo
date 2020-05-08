@@ -1,5 +1,13 @@
-// source: https://www.cs.rpi.edu/~moorthy/Courses/os98/Pgms/socket.html
-// review network socket in linux
+/****
+* network socket in linux 20200507
+* source reference: 
+*	source: https://www.cs.rpi.edu/~moorthy/Courses/os98/Pgms/socket.html
+*
+*	install IDE in AWS AMI
+*	C: sudo yum groupinstall "Development Tools" 
+*	ref: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/compile-software.html
+*	
+*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -10,11 +18,13 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 
+// Error function 
 void error(char *msg){
     perror(msg);
     exit(1);
 }
 
+// Main, start point
 int main(int argc, char *argv[]) {
     int sockfd, newsockfd, portno, clilen;
     char buffer[256];
@@ -26,6 +36,7 @@ int main(int argc, char *argv[]) {
         exit(1);
     }
 
+	// Setup server socket
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
     if (sockfd < 0) {
         error("ERROR opening socket");
@@ -38,6 +49,7 @@ int main(int argc, char *argv[]) {
     if (bind(sockfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr) )<0)
         error ("ERROR on binding");
     
+	// Start listening, only process one interaction
     listen(sockfd, 5);
     clilen = sizeof(cli_addr);
     newsockfd = accept(sockfd, (struct sockaddr*)&cli_addr, &clilen);
@@ -45,8 +57,10 @@ int main(int argc, char *argv[]) {
         error("ERROR on accept");
     }
     bzero(buffer, 256);
+	// Read from client
     n = read(newsockfd, buffer, 255);
     if (n<0) error("ERROR reading from socket");
+	// Write to client 
     n = write(newsockfd, "I got your message", 18);
     if (n < 0) error("ERROR writing to socket");
     
