@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-
+<!-- update 20200512 
+	Front end file with BootStrap support
+-->
 <!doctype html>
 <html lang="en">
   <head>
@@ -14,7 +16,7 @@
   </head>
   <body>
     <div class="alert alert-primary" role="alert">
-<%=request.getAttribute("message")  %>
+	  <%=request.getAttribute("message")  %>
  	</div>
 
     <!-- Optional JavaScript -->
