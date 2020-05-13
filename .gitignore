@@ -6,6 +6,7 @@
 !*.java
 !*.py
 !*.php
+!*.xml
 
 # keep folders 
 !*/
