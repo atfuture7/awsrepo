@@ -111,7 +111,7 @@ mvn archetype:generate -B \
   -DarchetypeGroupId=org.apache.maven.webapp \
   -DarchetypeArtifactId=maven-archetype-simple \
   -DgroupId=util.toolbox \
-  -DartifactId=tempuse
+  -DartifactId=upload-v2
 
 mvn archetype:generate -B \
   -DarchetypeGroupId=org.apache.maven.archetypes \
@@ -120,4 +120,24 @@ mvn archetype:generate -B \
   -DartifactId=tempuse \
   -Dversion=1.0-SNAPSHOT \
   -Dpackage=util.toolbox
+
+.
+├── pom.xml
+└── src
+    ├── main
+    │   ├── java
+    │   │   └── util
+    │   │       └── toolbox
+    │   │           └── UploadApacheCom.java
+    │   └── webapp
+    │       ├── index.jsp
+    │       ├── message.jsp
+    │       └── WEB-INF
+    │           └── web.xml
+    └── test
+        └── java
+            └── util
+                └── toolbox
+                    └── AppTest.java
+
 -->

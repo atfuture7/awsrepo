@@ -64,6 +64,7 @@ public class client {
 
 	// main, start point
     public static void main(String args[]) {
-        client client_obj = new client("localhost", 5000);
+        client client_obj = new client("172.31.0.84", 5000);
+        //client client_obj = new client("localhost", 5000);
     }
 }
