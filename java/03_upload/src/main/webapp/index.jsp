@@ -1,4 +1,7 @@
 <!doctype html>
+<!-- update 20200512 
+	Front end file with BootStrap support
+-->
 <html lang="en">
   <head>
     <!-- Required meta tags -->

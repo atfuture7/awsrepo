@@ -1,3 +1,4 @@
+// start 20200511
 package util.toolbox;
 
 import java.io.File;
@@ -39,22 +40,22 @@ public class UploadApacheCom extends HttpServlet {
 			
 			ServletFileUpload upload = new ServletFileUpload( new DiskFileItemFactory());
 		    try {
-			List<FileItem> multiple = 	new ServletFileUpload( new DiskFileItemFactory()).parseRequest(request);			
-			for (FileItem item: multiple) {
-				
-				if (item.isFormField()) {
-					// implement when there is....
-				} else {
-					// upload file 
-					String sName = new File(item.getName()).getName();
-					item.write(new File(sSavePath + File.separator +sName));
-					msg += "File uploaded "+ sName;
-				}		
-			}
+				List<FileItem> multiple = 	new ServletFileUpload( new DiskFileItemFactory()).parseRequest(request);			
+				for (FileItem item: multiple) {
+					
+					if (item.isFormField()) {
+						// implement when there is....
+					} else {
+						// upload file 
+						String sName = new File(item.getName()).getName();
+						item.write(new File(sSavePath + File.separator +sName));
+						msg += "File uploaded "+ sName;
+					}		
+				}
 		
 		    } catch (Exception e) {
-                         msg += "File upload failed : "+ e;
-                    }
+				msg += "File upload failed : "+ e;
+            }
 
 		    
 		}

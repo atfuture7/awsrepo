@@ -3,7 +3,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
+  <!-- update 20200512 -->
   <groupId>util.toolbox</groupId>
   <artifactId>upload-file</artifactId>
   <version>1.0-SNAPSHOT</version>
@@ -36,18 +36,18 @@
     	<scope>provided</scope>
     </dependency>
 
-<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
-<dependency>
-    <groupId>commons-io</groupId>
-    <artifactId>commons-io</artifactId>
-    <version>2.6</version>
-</dependency>
-<!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
-<dependency>
-    <groupId>commons-fileupload</groupId>
-    <artifactId>commons-fileupload</artifactId>
-    <version>1.4</version>
-</dependency>
+    <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+    <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>2.6</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
+    <dependency>
+        <groupId>commons-fileupload</groupId>
+        <artifactId>commons-fileupload</artifactId>
+        <version>1.4</version>
+    </dependency>
 
 
     <dependency>
@@ -95,13 +95,49 @@
           <groupId>org.apache.tomcat.maven</groupId>
           <artifactId>tomcat7-maven-plugin</artifactId>
           <version>2.2</version>
-	  <configuration>
-	    <port>8080</port>
-	    <path>/</path>
-	  </configuration>
+		  <configuration>
+			<port>8080</port>
+			<path>/</path>
+		  </configuration>
         </plugin>
 
       </plugins>
     </pluginManagement>
   </build>
 </project>
+
+<!--
+mvn archetype:generate -B \
+  -DarchetypeGroupId=org.apache.maven.webapp \
+  -DarchetypeArtifactId=maven-archetype-simple \
+  -DgroupId=util.toolbox \
+  -DartifactId=upload-v2
+
+mvn archetype:generate -B \
+  -DarchetypeGroupId=org.apache.maven.archetypes \
+  -DarchetypeArtifactId=maven-archetype-simple \
+  -DgroupId=util.toolbox \
+  -DartifactId=tempuse \
+  -Dversion=1.0-SNAPSHOT \
+  -Dpackage=util.toolbox
+
+.
+├── pom.xml
+└── src
+    ├── main
+    │   ├── java
+    │   │   └── util
+    │   │       └── toolbox
+    │   │           └── UploadApacheCom.java
+    │   └── webapp
+    │       ├── index.jsp
+    │       ├── message.jsp
+    │       └── WEB-INF
+    │           └── web.xml
+    └── test
+        └── java
+            └── util
+                └── toolbox
+                    └── AppTest.java
+
+-->
