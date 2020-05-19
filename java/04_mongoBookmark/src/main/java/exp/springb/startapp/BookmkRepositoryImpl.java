@@ -52,7 +52,7 @@ public class BookmkRepositoryImpl implements BookmkRepositoryCustom {
 		for (Page oPage : lst) {
 			System.out.println("in loop-----");
 			itrId = oPage.getId();
-			if (id.equals(pid)) {
+			if (itrId.equals(pid)) {
 				lst.remove(oPage);
 				break;
 			}
