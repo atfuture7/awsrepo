@@ -102,4 +102,18 @@ class PageController {
 			@RequestParam("idx") int idx) {
 		return repository.removeUrl( id, idx);
 	}
+
+	// Get Page, called from unity
+	@GetMapping(
+		value = "/pageurl/getpage",
+		params = "idx")
+	@ResponseBody
+	Page appendUrl(@RequestParam("idx") int idx) {
+		List<Page> lstPage = repository.findAll();
+		int total = lstPage.size();
+		idx = idx % total;
+		
+		return lstPage.get(idx);
+	}
+	
 }
